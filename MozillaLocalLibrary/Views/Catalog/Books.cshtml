@@ -11,7 +11,12 @@
     <ul>
         @foreach (var book in Model)
         {
-            <li><a href="@book.BookId">@book.Author.Name (@book.Book.Title)</a></li>
+            <li><a asp-controller="catalogo"
+                   asp-action="bookdetail"
+                   asp-route-id="@book.BookId">
+                    @book.Book.Title (@book.Author.Name)
+                </a>
+            </li>
         }
     </ul>
 </div>

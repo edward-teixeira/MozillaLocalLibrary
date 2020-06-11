@@ -46,11 +46,14 @@ namespace MozillaLocalLibrary.Controllers
             return View(books);
         }
 
-        public IActionResult Contact()
+        public IActionResult BookInstances()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Title"] = "Book Insance List";
 
-            return View();
+            var bookInstances = _repository.BookInstances
+                                               .ToList();
+
+            return View(bookInstances);
         }
 
         public IActionResult Privacy()

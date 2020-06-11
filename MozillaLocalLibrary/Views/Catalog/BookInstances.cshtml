@@ -1,0 +1,24 @@
+﻿@model List<MozillaLocalLibrary.Models.BookInstance>
+@{ }
+
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+        @{ 
+            if(!Model.Any())
+            { <h3 class="m-5">Nenhuma exemplar foi encontrado!</h3> }
+        }
+        <ul>
+            @foreach (var bookInstance in @Model)
+            {
+                var isAvailable = bookInstance.Status == LoanStatus.Available ? "success" : "danger";
+
+                <li>@bookInstance.Book.Title @bookInstance.BookInstanceId: @bookInstance.Book.Imprint
+                    <p class="@isAvailable">@bookInstance.Status</p>
+                </li>
+            }
+        </ul>
+    </div>
+
+
+
+
