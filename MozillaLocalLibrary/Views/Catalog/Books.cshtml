@@ -1,0 +1,17 @@
+﻿@model List<MozillaLocalLibrary.Models.BookAuthor>
+
+@{
+    ViewData["Title"] = "About";
+}
+
+<div class="container">
+
+    <h1>Book List</h1>
+
+    <ul>
+        @foreach (var book in Model)
+        {
+            <li><a href="@book.BookId">@book.Author.Name (@book.Book.Title)</a></li>
+        }
+    </ul>
+</div>

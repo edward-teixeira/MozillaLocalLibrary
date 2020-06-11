@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,11 +11,11 @@ using MozillaLocalLibrary.Models;
 
 namespace MozillaLocalLibrary.Controllers
 {
-    public class HomeController : Controller
+    public class CatalogController : Controller
     {   
         private LocalLibraryContext _repository { get; set; }
 
-        public HomeController(LocalLibraryContext context)
+        public CatalogController(LocalLibraryContext context)
         {
             _repository = context;
         }
@@ -32,11 +33,17 @@ namespace MozillaLocalLibrary.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Books()
         {
-            ViewData["Message"] = "Your application description page.";
+            var books = _repository
+                                .BookAuthors
+                                .AsNoTracking()
+                                .Include(it => it.Book)
+                                .Include(it => it.Author)
+                                .ToList();
 
-            return View();
+
+            return View(books);
         }
 
         public IActionResult Contact()
