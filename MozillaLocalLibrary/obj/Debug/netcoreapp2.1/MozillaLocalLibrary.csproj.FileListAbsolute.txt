@@ -34,3 +34,4 @@ C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\M
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\MozillaLocalLibrary.genruntimeconfig.cache
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\MozillaLocalLibrary.csproj.CopyComplete
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\bin\Debug\netcoreapp2.1\libman.json
+C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\MozillaLocalLibrary.csprojAssemblyReference.cache

@@ -1,5 +1,23 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
-}
+    ViewData["Title"] = "Local Library";
+    var bookCount = ViewData["BookCount"];
+    var copies = ViewData["Copies"];
+    var copiesAvailable = ViewData["Copies Available"];
+    var authors = ViewData["Authors"];
+    var genres = ViewData["Genres"];
 
-<h1>Home - Index Page</h1>
+}
+    <div class="container">
+        <h1 class="m-3">Local Library home</h1>
+        <p>Welcome to <i>@ViewData["Title"]</i>, a very basic Express website developed as a tutorial example on the Mozilla Developer Network.</p>
+
+        <h1 class="m-3">Dynamic Content</h1>
+        <p>The library has the following record counts:</p>
+        <ul>
+            <li><strong>Books:</strong> @bookCount</li>
+            <li><strong>Copies: </strong>@copies</li>
+            <li><strong>Copies Available: </strong>@copiesAvailable</li>
+            <li><strong>Authors: </strong>@authors</li>
+            <li><strong>Genres: </strong>@genres</li>
+        </ul>
+    </div>
