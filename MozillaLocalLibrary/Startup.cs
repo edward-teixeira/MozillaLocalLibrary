@@ -40,8 +40,13 @@ namespace MozillaLocalLibrary
             services.AddScoped<LocalLibraryContext>();
             
             services
-                .AddMvc()
+                .AddMvc(op =>
+                {
+                    op.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor( (_) =>
+                    "The field is required");
+                })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

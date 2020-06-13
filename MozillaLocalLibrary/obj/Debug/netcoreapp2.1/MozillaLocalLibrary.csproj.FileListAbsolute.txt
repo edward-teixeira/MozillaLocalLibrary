@@ -1,5 +1,6 @@
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\bin\Debug\netcoreapp2.1\appsettings.Development.json
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\bin\Debug\netcoreapp2.1\libman.json
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\bin\Debug\netcoreapp2.1\MozillaLocalLibrary.deps.json
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\bin\Debug\netcoreapp2.1\MozillaLocalLibrary.runtimeconfig.json
@@ -16,6 +17,12 @@ C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\M
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\MozillaLocalLibrary.TagHelpers.input.cache
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\MozillaLocalLibrary.TagHelpers.output.cache
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\MozillaLocalLibrary.RazorCoreGenerate.cache
+C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Book\Index.cshtml.g.cs
+C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Catalog\BookInstances.cshtml.g.cs
+C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Catalog\Books.cshtml.g.cs
+C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Catalog\Index.cshtml.g.cs
+C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Genres\Create.cshtml.g.cs
+C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Genres\Index.cshtml.g.cs
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -29,8 +36,5 @@ C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\M
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\MozillaLocalLibrary.pdb
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\MozillaLocalLibrary.genruntimeconfig.cache
 C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\MozillaLocalLibrary.csproj.CopyComplete
-C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\bin\Debug\netcoreapp2.1\libman.json
-C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Catalog\Contact.cshtml.g.cs
-C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Catalog\Index.cshtml.g.cs
-C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Catalog\Books.cshtml.g.cs
-C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Catalog\BookInstances.cshtml.g.cs
+C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Book\Detail.cshtml.g.cs
+C:\Users\edwar\Development\Mozilla Local Library - Projeto\MozillaLocalLibrary\MozillaLocalLibrary\obj\Debug\netcoreapp2.1\Razor\Views\Genres\Detail.cshtml.g.cs

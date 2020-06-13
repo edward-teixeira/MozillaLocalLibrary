@@ -17,14 +17,14 @@ namespace MozillaLocalLibrary.Data
             builder
                .HasKey(it => it.BookId);
 
-            builder
-                .HasMany(it => it.Genres)
-                .WithOne(it => it.Book)
-                .IsRequired();
-
             builder.
                 HasMany<Language>(it => it.Languages)
                 .WithOne(it => it.Book);
+
+            builder.
+                    HasOne<Genre>(it => it.genre)
+                    .WithMany(it => it.Books)
+                    .HasForeignKey(it => it.GenreId);
 
             builder
                 .HasMany(it => it.BookInstances)
@@ -33,10 +33,6 @@ namespace MozillaLocalLibrary.Data
 
         public void PropertyTypeConfiguration(EntityTypeBuilder<Book> builder)
         {
-
-            builder.Property(it => it.Title)
-                .HasColumnType("nvarchar(100)")
-                .IsRequired();
 
             builder.Property(it => it.Summary)
                .HasColumnType("nvarchar(800)")

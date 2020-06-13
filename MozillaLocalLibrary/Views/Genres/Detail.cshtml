@@ -1,0 +1,27 @@
+﻿@model MozillaLocalLibrary.ViewModels.GenreDetailViewModel
+@{ 
+    ViewData["Title"] = Model.GenreName;
+}
+
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+
+        @if (Model.Books == null)
+        {
+            <h4>There is no @ViewData["Title"] books.</h4>
+        }
+        else if(Model.Books.Any())
+        {
+            <ul>
+                @foreach (var it in @Model.Books)
+                {
+                    <li>
+                        <a asp-action="Detail" asp-controller="Book" asp-route-id="@it.BookId"><p>@it.Title</p></a>
+                        <p>@it.Summary</p>
+                    </li>
+                    <hr />
+                }
+            </ul>
+        }
+
+    </div>

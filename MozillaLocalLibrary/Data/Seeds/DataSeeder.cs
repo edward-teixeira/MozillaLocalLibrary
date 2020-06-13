@@ -28,7 +28,8 @@ namespace MozillaLocalLibrary.Data.Seeds
                 Imprint = "Editora 34",
                 ISBN = "9788573264098",
                 BookAuthors = new BookAuthor { AuthorId = 1, BookId = 1 } ,
-                BookId = 1
+                BookId = 1,
+                GenreId = 1
             });
 
             builder.Entity<Author>().HasData(new {
@@ -48,8 +49,7 @@ namespace MozillaLocalLibrary.Data.Seeds
             builder.Entity<Genre>().HasData(new
             {
                 Nome = "Literatura Estrangeira",
-                GenreId = 1,
-                BookId = 1
+                GenreId = 1
             });
         }
     }

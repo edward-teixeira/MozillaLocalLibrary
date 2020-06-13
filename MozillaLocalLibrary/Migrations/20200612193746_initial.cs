@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MozillaLocalLibrary.Migrations
 {
-    public partial class itwrks : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,19 +24,39 @@ namespace MozillaLocalLibrary.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Genres",
+                columns: table => new
+                {
+                    GenreId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Genres", x => x.GenreId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Books",
                 columns: table => new
                 {
                     BookId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Title = table.Column<string>(type: "nvarchar(60)", nullable: false),
-                    Summary = table.Column<string>(type: "nvarchar(800)", nullable: false),
-                    Imprint = table.Column<string>(nullable: true),
-                    ISBN = table.Column<string>(type: "nvarchar(13)", nullable: false)
+                    Title = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
+                    Summary = table.Column<string>(type: "nvarchar(800)", maxLength: 800, nullable: false),
+                    Imprint = table.Column<string>(maxLength: 60, nullable: false),
+                    ISBN = table.Column<string>(type: "nvarchar(13)", maxLength: 13, nullable: false),
+                    GenreId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Books", x => x.BookId);
+                    table.ForeignKey(
+                        name: "FK_Books_Genres_GenreId",
+                        column: x => x.GenreId,
+                        principalTable: "Genres",
+                        principalColumn: "GenreId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -85,26 +105,6 @@ namespace MozillaLocalLibrary.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Genres",
-                columns: table => new
-                {
-                    GenreId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(nullable: true),
-                    BookId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Genres", x => x.GenreId);
-                    table.ForeignKey(
-                        name: "FK_Genres_Books_BookId",
-                        column: x => x.BookId,
-                        principalTable: "Books",
-                        principalColumn: "BookId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Languages",
                 columns: table => new
                 {
@@ -130,19 +130,19 @@ namespace MozillaLocalLibrary.Migrations
                 values: new object[] { 1, new DateTime(1821, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1881, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Fiódor Dostoiévski" });
 
             migrationBuilder.InsertData(
+                table: "Genres",
+                columns: new[] { "GenreId", "Nome" },
+                values: new object[] { 1, "Literatura Estrangeira" });
+
+            migrationBuilder.InsertData(
                 table: "Books",
-                columns: new[] { "BookId", "ISBN", "Imprint", "Summary", "Title" },
-                values: new object[] { 1, "9788573264098", "Editora 34", "Último romance de Dostoiévski, Os irmãos Karamázov representa uma síntese de toda sua produção e é tido por muitos como sua obra-prima.", "Os irmãos Karamázov" });
+                columns: new[] { "BookId", "GenreId", "ISBN", "Imprint", "Summary", "Title" },
+                values: new object[] { 1, 1, "9788573264098", "Editora 34", "Último romance de Dostoiévski, Os irmãos Karamázov representa uma síntese de toda sua produção e é tido por muitos como sua obra-prima.", "Os irmãos Karamázov" });
 
             migrationBuilder.InsertData(
                 table: "BookAuthors",
                 columns: new[] { "BookId", "AuthorId" },
                 values: new object[] { 1, 1 });
-
-            migrationBuilder.InsertData(
-                table: "Genres",
-                columns: new[] { "GenreId", "BookId", "Nome" },
-                values: new object[] { 1, 1, "Literatura Estrangeira" });
 
             migrationBuilder.InsertData(
                 table: "Languages",
@@ -160,9 +160,9 @@ namespace MozillaLocalLibrary.Migrations
                 column: "BookId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Genres_BookId",
-                table: "Genres",
-                column: "BookId");
+                name: "IX_Books_GenreId",
+                table: "Books",
+                column: "GenreId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Languages_BookId",
@@ -179,9 +179,6 @@ namespace MozillaLocalLibrary.Migrations
                 name: "BookInstances");
 
             migrationBuilder.DropTable(
-                name: "Genres");
-
-            migrationBuilder.DropTable(
                 name: "Languages");
 
             migrationBuilder.DropTable(
@@ -189,6 +186,9 @@ namespace MozillaLocalLibrary.Migrations
 
             migrationBuilder.DropTable(
                 name: "Books");
+
+            migrationBuilder.DropTable(
+                name: "Genres");
         }
     }
 }

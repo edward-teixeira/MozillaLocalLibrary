@@ -8,7 +8,6 @@ namespace MozillaLocalLibrary.Models
 {
     public class BookInstance
     {
-        [Key]
         public int BookInstanceId { get; set; }
         public DateTime DueBack { get; set; }
         public LoanStatus Status { get; set; }
@@ -16,5 +15,7 @@ namespace MozillaLocalLibrary.Models
         //ef
         public int BookId { get; set; }
         public Book Book { get; set; }
+
+        public string DueBackFormatted() => DueBack.ToString("dd/MM/yyyy");
     }
 }

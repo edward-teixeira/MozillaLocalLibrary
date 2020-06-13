@@ -1,0 +1,17 @@
+﻿@model MozillaLocalLibrary.ViewModels.GenresViewModel
+
+@{
+    ViewData["Title"] = "Create Genre";
+
+}
+
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+        <form asp-action="Create">
+            <div asp-validation-summary="All"></div>
+            <label asp-for="Nome"></label>
+            <input asp-for="Nome" />
+            <span asp-validation-for="Nome"></span>
+            <input type="submit" value="Do Create" />
+        </form>
+    </div>

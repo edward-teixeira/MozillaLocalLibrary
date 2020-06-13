@@ -1,4 +1,6 @@
-﻿namespace MozillaLocalLibrary.Models
+﻿using System.Collections.Generic;
+
+namespace MozillaLocalLibrary.Models
 {
     public class Genre
     {
@@ -6,8 +8,6 @@
         public string Nome { get; set; }
 
         // Nav prop
-        public int BookId { get; set; }
-        public Book Book { get; set; }
-
+        public List<Book> Books { get; set; }
     }
 }

@@ -1,0 +1,25 @@
+﻿@model List<Genre>
+@{
+    ViewData["Title"] = "Genre List";
+}
+
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+
+        @if (!Model.Any())
+        {
+            <h3>No genre was found!</h3>
+        }
+        else
+        {
+            <ul>
+                @foreach (var genre in Model)
+                {
+                <li>
+                    <a asp-action="Detail" asp-controller="Genres" asp-route-id="@genre.GenreId"><p>@genre.Nome</p></a>
+                </li>
+                }
+            </ul>
+        }
+
+    </div>

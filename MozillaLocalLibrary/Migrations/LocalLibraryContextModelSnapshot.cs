@@ -50,26 +50,35 @@ namespace MozillaLocalLibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("GenreId");
+
                     b.Property<string>("ISBN")
                         .IsRequired()
-                        .HasColumnType("nvarchar(13)");
+                        .HasColumnType("nvarchar(13)")
+                        .HasMaxLength(13);
 
-                    b.Property<string>("Imprint");
+                    b.Property<string>("Imprint")
+                        .IsRequired()
+                        .HasMaxLength(60);
 
                     b.Property<string>("Summary")
                         .IsRequired()
-                        .HasColumnType("nvarchar(800)");
+                        .HasColumnType("nvarchar(800)")
+                        .HasMaxLength(800);
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(60)");
+                        .HasColumnType("nvarchar(60)")
+                        .HasMaxLength(60);
 
                     b.HasKey("BookId");
+
+                    b.HasIndex("GenreId");
 
                     b.ToTable("Books");
 
                     b.HasData(
-                        new { BookId = 1, ISBN = "9788573264098", Imprint = "Editora 34", Summary = "Último romance de Dostoiévski, Os irmãos Karamázov representa uma síntese de toda sua produção e é tido por muitos como sua obra-prima.", Title = "Os irmãos Karamázov" }
+                        new { BookId = 1, GenreId = 1, ISBN = "9788573264098", Imprint = "Editora 34", Summary = "Último romance de Dostoiévski, Os irmãos Karamázov representa uma síntese de toda sua produção e é tido por muitos como sua obra-prima.", Title = "Os irmãos Karamázov" }
                     );
                 });
 
@@ -116,18 +125,14 @@ namespace MozillaLocalLibrary.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BookId");
-
                     b.Property<string>("Nome");
 
                     b.HasKey("GenreId");
 
-                    b.HasIndex("BookId");
-
                     b.ToTable("Genres");
 
                     b.HasData(
-                        new { GenreId = 1, BookId = 1, Nome = "Literatura Estrangeira" }
+                        new { GenreId = 1, Nome = "Literatura Estrangeira" }
                     );
                 });
 
@@ -152,6 +157,14 @@ namespace MozillaLocalLibrary.Migrations
                     );
                 });
 
+            modelBuilder.Entity("MozillaLocalLibrary.Models.Book", b =>
+                {
+                    b.HasOne("MozillaLocalLibrary.Models.Genre", "genre")
+                        .WithMany("Books")
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("MozillaLocalLibrary.Models.BookAuthor", b =>
                 {
                     b.HasOne("MozillaLocalLibrary.Models.Author", "Author")
@@ -169,14 +182,6 @@ namespace MozillaLocalLibrary.Migrations
                 {
                     b.HasOne("MozillaLocalLibrary.Models.Book", "Book")
                         .WithMany("BookInstances")
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("MozillaLocalLibrary.Models.Genre", b =>
-                {
-                    b.HasOne("MozillaLocalLibrary.Models.Book", "Book")
-                        .WithMany("Genres")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

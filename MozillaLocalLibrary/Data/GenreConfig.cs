@@ -13,12 +13,13 @@ namespace MozillaLocalLibrary.Data
         public void Configure(EntityTypeBuilder<Genre> builder)
         {
             PropertyTypeConfiguration(builder);
+
         }
 
         public void PropertyTypeConfiguration(EntityTypeBuilder<Genre> builder)
         {
             builder
-                .HasKey(it => it.BookId);
+                .HasKey(it => it.GenreId);
 
             builder
                 .Property(it => it.Nome)
