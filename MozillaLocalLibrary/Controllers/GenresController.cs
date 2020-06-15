@@ -75,16 +75,17 @@ namespace MozillaLocalLibrary.Controllers
 
         public IActionResult Detail(int id)
         {
-            var genre = _repository.Genres.Include(it => it.Books).First();
-            
-            if(genre != null)
+            var genreInfo = _repository.Genres.First(it => it.GenreId == id);
+            var books = _repository.Books.Where(it => it.GenreId == id).ToList();
+
+            if(genreInfo != null && books != null)
             {
                 var viewModel = new GenreDetailViewModel {
-                    GenreId = genre.GenreId,
-                    Books = genre.Books,
-                    GenreName = genre.Nome
+                    GenreId = genreInfo.GenreId,
+                    Books = books,
+                    GenreName = genreInfo.Nome
                 };
-
+                viewModel.Authors = _repository.BookAuthors.Where(it => it.Book.GenreId == id).Include(it => it.Author).ToList();
                 return View(viewModel);
             }
             else

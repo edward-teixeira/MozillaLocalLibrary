@@ -11,5 +11,6 @@ namespace MozillaLocalLibrary.ViewModels
         public int GenreId { get; set; }
         public string  GenreName { get; set; }
         public List<Book> Books { get; set; }
+        public List<BookAuthor> Authors { get; set; }
     }
 }

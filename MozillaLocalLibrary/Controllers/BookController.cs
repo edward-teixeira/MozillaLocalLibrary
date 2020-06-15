@@ -47,6 +47,7 @@ namespace MozillaLocalLibrary.Controllers
             {
                 try
                 {
+                    ViewData["Genres"] = _repository.Genres.ToList();
                     _repository.Books.Add(book);
                     _repository.SaveChanges();
                 }
